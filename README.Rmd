@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # waratah
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/digitalnsw/nsw-r-visualisations/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/digitalnsw/nsw-r-visualisations/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of `waratah` is to provide a R tool kit for styles, patterns and
@@ -24,11 +25,29 @@ standards following the [Digital NSW, NSW Design System](https://github.com/digi
 
 ## Installation
 
-You can install the development version of waratah from [GitHub](https://github.com/) with:
+You can install waratah like so:
 
 ``` r
-TODO test
+# CRAN release (not yet!)
+# install.packages('waratah')
+
+# development version
+install.packages('pak')
+pak::pak('digitalnsw/nsw-r-visualisations')
 ```
 
-##
+## Usage
+In many instances it may be sufficient to set the global theme:
 
+```{r}
+library(ggplot2)
+library(waratah)
+
+set_theme(theme_waratah())
+
+ggplot(mpg, aes(displ, hwy, colour = class)) +
+  geom_point()
+```
+
+More control is available through palette functions such as `pal_waratah()`.
+See `vignette("waratah")` for usage guidelines.

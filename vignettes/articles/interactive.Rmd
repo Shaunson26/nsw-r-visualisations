@@ -1,0 +1,81 @@
+---
+title: "Interactive plots"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(palmerpenguins, warn.conflicts = FALSE)
+library(gdtools, warn.conflicts = FALSE)
+library(ggiraph, warn.conflicts = FALSE)
+```
+
+```{r setup}
+library(waratah)
+library(palmerpenguins)
+library(ggplot2)
+library(ggiraph)
+library(gdtools)
+
+nsw_fonts <- font_set(sans = font_google("Public Sans"))
+```
+
+Saving plot to an object to demonstrate custom tooltip function using ggiraph:
+```{r}
+p_gir <-
+  ggplot(penguins) +
+  geom_point_interactive(aes(
+    x = bill_length_mm,
+    y = flipper_length_mm,
+    colour = species,
+    size = body_mass_g,
+    tooltip = paste0(
+      "Species: ",
+      species,
+      "<br>Bill length: ",
+      bill_length_mm,
+      "<br>Flipper length: ",
+      flipper_length_mm
+    )
+  )) +
+  labs(
+    title = "Penguin measurements",
+    dictionary = c(
+      bill_length_mm = "Bill length (mm)",
+      flipper_length_mm = "Flipper length (mm)",
+      species = "Species",
+      body_mass_g = "Body mass (g)"
+    ),
+    caption = "Data from {palmerpenguins}"
+  ) +
+  scale_colour_discrete(
+    palette = pal_nsw_manual(c("blue_01", "red_02", "teal_02"))
+  ) +
+  theme_waratah()
+
+# Create the interactive plot using ggiraph
+girafe(
+  ggobj = p_gir,
+  font_set = nsw_fonts,
+  options = list(
+    opts_tooltip(css = tooltip_css())
+  )
+)
+
+# With additional styling options
+girafe(
+  ggobj = p_gir,
+  font_set = nsw_fonts,
+  options = list(
+    opts_tooltip(
+      css = tooltip_css(
+        font_size = "18px",
+        background_colour = "blue_04",
+        text_colour = "blue_01"
+      )
+    )
+  )
+)
+```

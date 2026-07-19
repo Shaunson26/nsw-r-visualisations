@@ -2,36 +2,77 @@
 % Please edit documentation in R/theme_waratah.R
 \name{theme_waratah}
 \alias{theme_waratah}
-\title{theme_waratah()}
+\title{Theme plots using NSW colours and fonts}
 \usage{
 theme_waratah(
-  title_font = "Public Sans",
-  base_font = "Arial",
-  void = FALSE,
+  base_size = 11,
+  base_family = "Public Sans",
+  header_family = "Public Sans",
+  base_line_size = base_size/22,
+  base_rect_size = base_size/22,
+  ink = "black",
+  paper = "white",
+  geom_ink = "blue_01",
+  accent = "blue_02",
+  variant = getOption("waratah.colour_theme", default = "base"),
   show_grid_lines = TRUE,
-  base_text_size = 11,
-  background_colour = TRUE,
-  .colours = waratah_colours
+  void = FALSE
 )
 }
 \arguments{
-\item{title_font}{The default title is \"Public Sans\". To change to a different font (e.g. to match up with an external publication requirement), simply change as desired (e.g. \"Arial\"). Make sure you've installed the fonts you want to use on your device first!}
+\item{base_size}{base font size, given in pts.}
 
-\item{base_font}{The default font is \"Arial\"). If you want to use a different font (e.g. to match up with an external publication requirement), simply change as desired (e.g. \"Times New Roman\"). Make sure you've installed the fonts you want to use on your device first!}
+\item{base_family}{base font family}
 
-\item{void}{Logical (TRUE/FALSE). If TRUE, all grid lines and axes are removed. This is useful when creating pie/donut charts.}
+\item{header_family}{font family for titles and headers. The default, \code{NULL},
+uses theme inheritance to set the font. This setting affects axis titles,
+legend titles, the plot title and tag text.}
 
-\item{show_grid_lines}{Logical (TRUE/FALSE). If FALSE, all grid lines are removed but the axis text is retained.}
+\item{base_line_size}{base size for line elements}
 
-\item{base_text_size}{Base text size in pt. The relative size of the title / subtitle text and of the margins is derived from this.}
+\item{base_rect_size}{base size for rect elements}
 
-\item{background_colour}{Logical. The default (TRUE) adds an off white colour to the background in line with the ophelia colour palette. Change to FALSE for a white background.}
+\item{ink, paper, accent}{colour for foreground, background, and accented elements respectively.}
 
-\item{.colours}{Used to read in waratah_colours. Please leave as is!}
+\item{geom_ink}{default ink colour used by geoms for points, lines and fills.}
+
+\item{variant}{name of palette variant.
+Available options are: base, aboriginal, corporate, treasury.}
+
+\item{show_grid_lines}{whether to show grid lines.
+If \code{FALSE}, all grid lines are removed but the axis text is retained.
+Ignored when \code{void} is \code{TRUE}.}
+
+\item{void}{whether to hide grid lines and axes.
+If \code{TRUE}, all grid lines and axes are removed. This is useful when creating
+pie/donut charts.}
 }
 \value{
-No object is returned. Instead, the theme is applied to a ggplot plot.
+ggplot theme specification to add to a plot
 }
 \description{
-theme_waratah()
+A 'ggplot2' theme compatible with the NSW design system.
+It sets default colour scales, fonts, and some other styles.
+}
+\examples{
+library(ggplot2)
+set_theme(theme_waratah())
+
+ggplot(palmerpenguins::penguins) +
+  geom_point(aes(
+    x = bill_length_mm,
+    y = flipper_length_mm,
+    colour = species,
+    size = body_mass_g
+  )) +
+  labs(
+    caption = "Data from {palmerpenguins}",
+    dictionary = c(
+      bill_length_mm = "Bill length (mm)",
+      flipper_length_mm = "Flipper length (mm)",
+      species = "Species",
+      body_mass_g = "Body mass (g)"
+    )
+  )
+
 }
