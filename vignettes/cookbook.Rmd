@@ -24,6 +24,7 @@ nswtheme styles. Each example shows the base plot then the themed version.
 ## Example 1: markdown text
 
 With standard ggplot output:
+
 ```{r}
 library(nswtheme)
 library(palmerpenguins)

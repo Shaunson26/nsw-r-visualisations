@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/digitalnsw/nsw-r-visualisations/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/digitalnsw/nsw-r-visualisations/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/digitalnsw/nswtheme/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/digitalnsw/nswtheme/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of `nswtheme` is to provide a R tool kit for styles, patterns
@@ -22,7 +22,7 @@ You can install nswtheme like so:
 
 # development version
 install.packages('pak')
-pak::pak('digitalnsw/nsw-r-visualisations')
+pak::pak('digitalnsw/nswtheme')
 ```
 
 ## Usage
