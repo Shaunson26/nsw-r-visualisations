@@ -1,8 +1,8 @@
 ---
-title: "waratah"
+title: "nswtheme"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{waratah}
+  %\VignetteIndexEntry{nswtheme}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(ggplot2, warn.conflicts = FALSE)
-library(waratah)
+library(nswtheme)
 ```
 
 ## Fonts
@@ -43,9 +43,9 @@ Recommendations:
 
 ## Theme for ggplot2
 
-`theme_waratah()` sets default fonts, styles, and colour palettes for plots.
+`theme_nswtheme()` sets default fonts, styles, and colour palettes for plots.
 You can set the theme globally with `ggplot2::set_theme()` or add it to an individual plot.
-If using any global options like `options(waratah.colour_theme = "aboriginal")`, make sure
+If using any global options like `options(nswtheme.colour_theme = "aboriginal")`, make sure
 to do this before setting the theme.
 
 See `vignette("cookbook")` for some examples of using the theme.
@@ -85,37 +85,37 @@ scale_colour_continuous(palette = pal_nsw(hue = "blue"))
 
 ### Flexible palettes
 
-Instead of working directly with the grid, you can instead use `pal_waratah()`.
+Instead of working directly with the grid, you can instead use `pal_nswtheme()`.
 Specify the pattern of your data and you will get a reasonable discrete or continous scale.
 Note that this makes it harder to follow the chat recommendations mentioned above, but it can be more convenient for scientific data visualisation.
 
 For qualitative data, a mix of tonal rows 1 and 2 are chosen to avoid overly-similar colours:
 
 ```{r}
-pal_waratah("qual") |> scales::show_col()
+pal_nswtheme("qual") |> scales::show_col()
 ```
 
 There are also palettes for sequential and diverging continuous data that allow a choice of the base hue:
 
 ```{r}
-pal_waratah("div", hue = "green") |> scales::show_col(labels = FALSE)
+pal_nswtheme("div", hue = "green") |> scales::show_col(labels = FALSE)
 ```
 
-Because `pal_waratah()` considers colour similarity, you can request that it also take into account colour vision disorders:
+Because `pal_nswtheme()` considers colour similarity, you can request that it also take into account colour vision disorders:
 
 ```{r}
-pal_waratah("div", hue = "green", cvd = TRUE) |> scales::show_col(labels = FALSE)
+pal_nswtheme("div", hue = "green", cvd = TRUE) |> scales::show_col(labels = FALSE)
 ```
 
 To make that choice globally, set:
 
 ```R
-options(waratah.cvd = TRUE)
+options(nswtheme.cvd = TRUE)
 ```
 
 ### Colour themes
 
-Colour palettes in waratah allow a variant to be specified, including the default `variant = "base"` and the Aboriginal palette `variant = "aboriginal"`.
+Colour palettes in nswtheme allow a variant to be specified, including the default `variant = "base"` and the Aboriginal palette `variant = "aboriginal"`.
 See `pal_nsw()` for details.
 
 ## NSW Government logo
@@ -127,7 +127,7 @@ library(magick)
 image_path <- system.file(
   "images",
   "nsw-gov-logo-primary.png",
-  package = "waratah"
+  package = "nswtheme"
 )
 image_read(image_path)
 ```

@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(waratah)
+library(nswtheme)
 library(ggplot2, warn.conflicts = FALSE)
 library(dplyr, warn.conflicts = FALSE)
 library(forcats)
@@ -23,7 +23,7 @@ library(reactable)
 
 ```{r, echo = TRUE}
 set_theme(
-  theme_waratah(variant = "corporate") + theme(legend.position = "bottom")
+  theme_nswtheme(variant = "corporate") + theme(legend.position = "bottom")
 )
 ```
 
