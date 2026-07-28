@@ -19,7 +19,7 @@
 #' @importFrom scales as_continuous_pal
 #' @examples
 #' library(ggplot2)
-#' set_theme(theme_nswtheme())
+#' set_theme(theme_nsw())
 #'
 #' ggplot(palmerpenguins::penguins) +
 #'   geom_point(aes(
@@ -38,7 +38,7 @@
 #'     )
 #'   )
 #'
-theme_nswtheme <- function(
+theme_nsw <- function(
   base_size = 11,
   base_family = "Public Sans",
   header_family = "Public Sans",
@@ -138,10 +138,10 @@ theme_nswtheme <- function(
         fill = geom_ink,
         pointsize = 2,
       ),
-      palette.colour.discrete = pal_nswtheme(type = "qual", variant = variant),
-      palette.fill.discrete = pal_nswtheme(type = "qual", variant = variant),
-      palette.colour.continuous = pal_nswtheme(type = "seq", variant = variant),
-      palette.fill.continuous = pal_nswtheme(type = "seq", variant = variant),
+      palette.colour.discrete = pal_waratah(type = "qual", variant = variant),
+      palette.fill.discrete = pal_waratah(type = "qual", variant = variant),
+      palette.colour.continuous = pal_waratah(type = "seq", variant = variant),
+      palette.fill.continuous = pal_waratah(type = "seq", variant = variant),
       complete = TRUE
     )
 
@@ -173,5 +173,3 @@ theme_nswtheme <- function(
 
   new_theme
 }
-
-theme_nswtheme <- theme_nswtheme

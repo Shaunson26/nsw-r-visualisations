@@ -67,14 +67,14 @@ p1
 Style with nswtheme:
 ```{r}
 p1 +
-  theme_nswtheme()
+  theme_nsw()
 ```
 
 Change to a different NSW palette:
 ```{r}
 p1 +
-  scale_colour_discrete(palette = pal_nswtheme("qual", var = "aboriginal")) +
-  theme_nswtheme()
+  scale_colour_discrete(palette = pal_waratah("qual", var = "aboriginal")) +
+  theme_nsw()
 ```
 
 The markdown handling is done with `ggtext`.
@@ -122,8 +122,8 @@ p2 + scale_fill_brewer(palette = "Paired")
 Styling using nswtheme package - here we want a paired colour palette:
 ```{r}
 p2 +
-  discrete_scale("fill", palette = pal_nswtheme("pairs")) +
-  theme_nswtheme()
+  discrete_scale("fill", palette = pal_waratah("pairs")) +
+  theme_nsw()
 ```
 
 More manual control of the palette is possible, for example specifying the rows
@@ -137,7 +137,7 @@ p2 +
       var = "aboriginal"
     )
   ) +
-  theme_nswtheme(base_size = 14)
+  theme_nsw(base_size = 14)
 ```
 
 ## Example 3: stacked bars
@@ -163,7 +163,7 @@ Styling using the nswtheme package - specifying pallete
 ```{r}
 p3 +
   scale_fill_discrete(palette = pal_nsw(hue = "purples")) +
-  theme_nswtheme(base_size = 14) +
+  theme_nsw(base_size = 14) +
   guides(x = guide_axis(angle = 70)) +
   theme(panel.grid.major.x = element_blank())
 ```
@@ -212,10 +212,10 @@ Styling using the nswtheme package with options:
 p4 +
   scale_fill_discrete(
     aesthetics = c("fill", "colour"),
-    palette = pal_nswtheme("qual"),
+    palette = pal_waratah("qual"),
     guide = "none"
   ) +
-  theme_nswtheme(
+  theme_nsw(
     void = TRUE,
     base_size = 14
   )
@@ -298,8 +298,8 @@ We specify `"red"` as our starting hue.  Without `cvd = TRUE` the second colour 
 p5 +
   discrete_scale(
     "fill",
-    palette = pal_nswtheme("div", "red", cvd = TRUE) |> pal_stretch(),
+    palette = pal_waratah("div", "red", cvd = TRUE) |> pal_stretch(),
     breaks = sentiment
   ) +
-  theme_nswtheme(base_size = 12)
+  theme_nsw(base_size = 12)
 ```

@@ -39,13 +39,13 @@ Imports:
     systemfonts,
     extrafont,
     vctrs,
-    farver,
-    gfonts
+    farver
 URL: https://github.com/digitalnsw/nswtheme, https://digitalnsw.github.io/nswtheme/
 BugReports: https://github.com/digitalnsw/nswtheme/issues
 Suggests:
     dplyr,
     forcats,
+    gfonts,
     ggiraph,
     reactable (>= 0.4.4),
     knitr,

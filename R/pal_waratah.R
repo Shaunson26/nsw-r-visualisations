@@ -1,6 +1,6 @@
 #' Flexible colour palettes
 #'
-#' Unlike [`pal_nsw()`], `pal_nswtheme()` is not based strictly on the NSW colour
+#' Unlike [`pal_nsw()`], `pal_waratah()` is not based strictly on the NSW colour
 #' palette grids.
 #' It tries to choose colours that are perceptually distinct, optionally taking
 #' into account colour-blindness when doing so.
@@ -24,13 +24,13 @@
 #' @examples
 #' library(scales)
 #'
-#' pal_nswtheme("qual") |> show_col()
-#' pal_nswtheme("pairs") |> show_col()
-#' pal_nswtheme("seq", hue = "red") |> show_col(labels = FALSE)
-#' pal_nswtheme("div", hue = "yellow", variant = "aboriginal") |>
+#' pal_waratah("qual") |> show_col()
+#' pal_waratah("pairs") |> show_col()
+#' pal_waratah("seq", hue = "red") |> show_col(labels = FALSE)
+#' pal_waratah("div", hue = "yellow", variant = "aboriginal") |>
 #'   show_col(labels = FALSE)
 #'
-pal_nswtheme <- function(
+pal_waratah <- function(
   type = c("qual", "seq", "div", "pairs", "triples"),
   hue = 1,
   cvd = getOption("nswtheme.cvd", default = FALSE),

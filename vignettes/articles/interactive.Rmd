@@ -53,7 +53,7 @@ p_gir <-
   scale_colour_discrete(
     palette = pal_nsw_manual(c("blue_01", "red_02", "teal_02"))
   ) +
-  theme_nswtheme()
+  theme_nsw()
 
 # Create the interactive plot using ggiraph
 girafe(

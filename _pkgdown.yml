@@ -12,8 +12,8 @@ reference:
   desc: >
     Main theme and colour palettes.
   contents:
-  - theme_nswtheme
-  - pal_nswtheme
+  - theme_nsw
+  - pal_waratah
   - pal_nsw
 - title: Colour utilities
   desc: >

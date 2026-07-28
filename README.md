@@ -33,7 +33,7 @@ In many instances it may be sufficient to set the global theme:
 library(ggplot2)
 library(nswtheme)
 
-set_theme(theme_nswtheme())
+set_theme(theme_nsw())
 
 ggplot(mpg, aes(displ, hwy, colour = class)) +
   geom_point()
@@ -42,4 +42,4 @@ ggplot(mpg, aes(displ, hwy, colour = class)) +
 <img src="man/figures/README-unnamed-chunk-2-1.png" alt="" width="100%" />
 
 More control is available through palette functions such as
-`pal_nswtheme()`. See `vignette("nswtheme")` for usage guidelines.
+`pal_waratah()`. See `vignette("nswtheme")` for usage guidelines.

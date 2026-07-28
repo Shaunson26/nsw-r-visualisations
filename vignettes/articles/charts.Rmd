@@ -23,7 +23,7 @@ library(reactable)
 
 ```{r, echo = TRUE}
 set_theme(
-  theme_nswtheme(variant = "corporate") + theme(legend.position = "bottom")
+  theme_nsw(variant = "corporate") + theme(legend.position = "bottom")
 )
 ```
 
